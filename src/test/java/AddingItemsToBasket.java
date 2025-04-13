@@ -23,7 +23,7 @@ public class AddingItemsToBasket extends BaseWebTest {
         driver.navigate().to(BASE_CONFIGS.wbUrl() + TEST_DATA.bookEndpoint());
 
         String productTitle = productPage.getProductTitle();
-        assertEquals(productTitle, TEST_DATA.bookTitle(), "Product title isn't matched.");
+        assertEquals(productTitle, TEST_DATA.bookTitle(), "Product title wasn't matched.");
 
         String productWalletPrice = productPage.getProductWalletPrice();
         String productFinalPrice = productPage.getProductFinalPrice();
@@ -31,28 +31,28 @@ public class AddingItemsToBasket extends BaseWebTest {
         productPage.addingProductToBasket();
 
         boolean isAddToBasketHidden = productPage.isAddToBasketHidden();
-        assertTrue(isAddToBasketHidden, "Add to basket button isn't hidden.");
+        assertTrue(isAddToBasketHidden, "Add to basket button wasn't hidden.");
 
         String basketCount = headerPage.getNavBarItemCount("basket");
-        assertEquals(basketCount, "1", "Basket count isn't matched.");
+        assertEquals(basketCount, "1", "Basket count wasn't matched.");
 
         headerPage.goToNavBarItem("basket");
 
         assertSoftly(softAssertions -> {
             assertThat(basketPage.getBasketHeader())
-                    .withFailMessage("Basket header isn't matched.")
+                    .withFailMessage("Basket header wasn't matched.")
                     .isEqualTo(TEST_DATA.basketHeader());
             assertThat(basketPage.getGoodNamesList())
-                    .withFailMessage("Books name isn't matched.")
+                    .withFailMessage("Books name wasn't matched.")
                     .isEqualTo(List.of(TEST_DATA.bookTitle()));
             assertThat(basketPage.getGoodBrandsList())
-                    .withFailMessage("Books brand isn't matched.")
+                    .withFailMessage("Books brand wasn't matched.")
                     .isEqualTo(List.of(TEST_DATA.bookBrand()));
             assertThat(basketPage.getWaletPricesList())
-                    .withFailMessage("Books wallet price isn't matched.")
+                    .withFailMessage("Books wallet price wasn't matched.")
                     .isEqualTo(List.of(productWalletPrice));
             assertThat(basketPage.getNewPricesList())
-                    .withFailMessage("Books final price isn't  matched.")
+                    .withFailMessage("Books final price wasn't  matched.")
                     .isEqualTo(List.of(productFinalPrice));
         });
     }
