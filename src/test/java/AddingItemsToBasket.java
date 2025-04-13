@@ -34,7 +34,7 @@ public class AddingItemsToBasket extends BaseWebTest {
         assertTrue(isAddToBasketHidden, "Add to basket button isn't hidden.");
 
         String basketCount = headerPage.getNavBarItemCount("basket");
-        assertEquals(basketCount, "1", "Product title isn't matched.");
+        assertEquals(basketCount, "1", "Basket count isn't matched.");
 
         headerPage.goToNavBarItem("basket");
 
