@@ -52,7 +52,7 @@ public class AddingItemsToBasket extends BaseWebTest {
                     .withFailMessage("Books wallet price wasn't matched.")
                     .isEqualTo(List.of(productWalletPrice));
             assertThat(basketPage.getNewPricesList())
-                    .withFailMessage("Books final price wasn't  matched.")
+                    .withFailMessage("Books final price wasn't matched.")
                     .isEqualTo(List.of(productFinalPrice));
         });
     }
