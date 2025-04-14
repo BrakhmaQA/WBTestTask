@@ -42,11 +42,9 @@ public class ProductPage {
     @FindBy(xpath = "//div[@class='product-page__aside']//del[@class='price-block__old-price']/span")
     public WebElement oldProductPrice;
 
-    @Step("Получение заголовка товара")
-    public String getProductTitle() {
-        wait.until(ExpectedConditions.visibilityOf(productTitle));
-
-        return productTitle.getText();
+    @Step("Открылась карточка товара {title}")
+    public void openedProductCard(String title) {
+        wait.until(ExpectedConditions.textToBePresentInElement(productTitle, title));
     }
 
     @Step("Получение цены товары при оплате с кошелька")

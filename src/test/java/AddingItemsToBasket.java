@@ -22,8 +22,7 @@ public class AddingItemsToBasket extends BaseWebTest {
     public void successAddingBook() {
         driver.navigate().to(BASE_CONFIGS.wbUrl() + TEST_DATA.bookEndpoint());
 
-        String productTitle = productPage.getProductTitle();
-        assertEquals(productTitle, TEST_DATA.bookTitle(), "Product title wasn't matched.");
+        productPage.openedProductCard(TEST_DATA.bookTitle());
 
         String productWalletPrice = productPage.getProductWalletPrice();
         String productFinalPrice = productPage.getProductFinalPrice();
